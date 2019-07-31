@@ -12,7 +12,7 @@
     </parent>
 
 
-    <groupId>com.lc.clz</groupId>
+    <groupId>com.lc.com.lc.clz</groupId>
     <artifactId>lc2</artifactId>
     <packaging>pom</packaging>
     <version>2.0.0</version>
@@ -72,11 +72,16 @@
                 <artifactId>druid</artifactId>
                 <version>1.1.9</version>
             </dependency>
-            <!--<dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-redis</artifactId>
-                <version>1.5.4.RELEASE</version>
-            </dependency>-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>2.5.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.7</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -99,6 +104,10 @@
         <module>lc-basic-service</module>
         <module>lc-common</module>
         <module>lc-config-server</module>
+        <module>lc-api</module>
+        <module>lc-zuul</module>
+        <module>lc-authorization-center</module>
+        <module>lc-user-center</module>
     </modules>
 
 

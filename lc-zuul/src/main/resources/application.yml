@@ -1,0 +1,41 @@
+server:
+  port: 80
+spring:
+  application:
+    name: lc-zuul
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true     #访问路径可以显示IP地址
+    lease-renewal-interval-in-seconds: 30 #该字段代表每2s像服务器发送一次心跳
+    lease-expiration-duration-in-seconds: 90  #该字段代表如果6s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
+  client:
+    initial-instance-info-replication-interval-seconds: 6
+    serviceUrl:
+      defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
+zuul:
+  host:
+    max-total-connections: 200
+    max-per-route-connections: 20
+#  ignored-services: '*' #避免所有接口暴露
+#  prefix: /lc #设置公共前缀
+  routes:
+    lc-user-center:
+      path: /lc-user-center/**   # 此处地址必须配置与服务id一致，否则swagger的配置无法访问到正确地址
+      sensitiveHeaders:
+    lc-auth-center:
+      path: /lc-auth-center/** # 此处地址必须配置与服务id一致，否则swagger的配置无法访问到正确地址
+      sensitiveHeaders:
+    lc-basic-service:
+      path: /lc-basic-service/** # 此处地址必须配置与服务id一致，否则swagger的配置无法访问到正确地址
+      sensitiveHeaders:
+  add-proxy-headers: true
+
+security:
+  oauth2:
+    client:
+      accessTokenUri: http://lc.auth.com:7000/oauth/token
+      userAuthorizationUri: http://lc.auth.com:7000/oauth/authorize
+    resource:
+      userInfoUri: http://lc.auth.com:7000/user
+      prefer-token-info: false

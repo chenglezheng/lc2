@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>lc2</artifactId>
-        <groupId>com.lc.clz</groupId>
+        <groupId>com.lc.com.lc.clz</groupId>
         <version>2.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -13,8 +13,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.lc.clz</groupId>
+            <groupId>com.lc.com.lc.clz</groupId>
             <artifactId>lc-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lc.com.lc.clz</groupId>
+            <artifactId>lc-api</artifactId>
             <version>${project.version}</version>
         </dependency>
         <!-- eureka client 客户端依赖 -->
@@ -22,10 +27,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-config</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
         <!--Mysql-->
         <dependency>
             <groupId>mysql</groupId>
@@ -53,13 +58,15 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.5.0</version>
         </dependency>
-        <!-- 要用redis连接池 必须有pool依赖-->
-        <!--<dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
         <!-- 修改后立即生效，热部署 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
