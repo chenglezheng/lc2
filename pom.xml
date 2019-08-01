@@ -12,7 +12,7 @@
     </parent>
 
 
-    <groupId>com.lc.com.lc.clz</groupId>
+    <groupId>com.lc.clz</groupId>
     <artifactId>lc2</artifactId>
     <packaging>pom</packaging>
     <version>2.0.0</version>
