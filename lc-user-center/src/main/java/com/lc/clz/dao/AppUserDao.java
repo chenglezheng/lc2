@@ -1,6 +1,6 @@
 package com.lc.clz.dao;
 
-import com.lc.clz.oauth2.AppUser;
+import com.lc.clz.entities.user.AppUser;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;

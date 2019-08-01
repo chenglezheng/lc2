@@ -11,6 +11,8 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -103,6 +105,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     }
 
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     /**
      * 我们将client信息存储到oauth_client_details表里<br>
      * 并将数据缓存到redis
@@ -112,15 +117,15 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        /*clients.inMemory()
+        clients.inMemory()
                 .withClient("system")//客户端ID
                 .authorizedGrantTypes("password", "refresh_token")//设置验证方式
                 .scopes("app")
-                .secret("system")
+                .secret(bCryptPasswordEncoder.encode("system"))
                 .accessTokenValiditySeconds(10000) //token过期时间
-                .refreshTokenValiditySeconds(10000); //refresh过期时间*/
-        clients.withClientDetails(jdbcClientDetailsServiceImpl);
-        jdbcClientDetailsServiceImpl.loadAllClientToCache();
+                .refreshTokenValiditySeconds(10000); //refresh过期时间
+        /*clients.withClientDetails(jdbcClientDetailsServiceImpl);
+        jdbcClientDetailsServiceImpl.loadAllClientToCache();*/
     }
 
 

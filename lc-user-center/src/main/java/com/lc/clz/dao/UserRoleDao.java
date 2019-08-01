@@ -1,6 +1,6 @@
 package com.lc.clz.dao;
 
-import com.lc.clz.oauth2.SysRole;
+import com.lc.clz.entities.user.SysRole;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

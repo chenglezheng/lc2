@@ -1,6 +1,8 @@
 package com.lc.clz.oauth2;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.lc.clz.entities.user.AppUser;
+import com.lc.clz.entities.user.SysRole;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;

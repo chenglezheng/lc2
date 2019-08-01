@@ -3,10 +3,13 @@ package com.lc.clz.service.impl;
 import com.lc.clz.dao.AppUserDao;
 import com.lc.clz.dao.UserCredentialsDao;
 import com.lc.clz.dao.UserRoleDao;
-import com.lc.clz.feign.BasicServiceFeign;
+import com.lc.clz.entities.*;
+import com.lc.clz.entities.user.AppUser;
+import com.lc.clz.entities.user.SysPermission;
+import com.lc.clz.entities.user.SysRole;
+import com.lc.clz.entities.user.UserCredential;
 import com.lc.clz.service.AppUserService;
 import com.lc.clz.service.SysPermissionService;
-import com.lc.clz.entities.User;
 import com.lc.clz.oauth2.*;
 import com.lc.clz.oauth2.constants.CredentialType;
 import com.lc.clz.oauth2.constants.Page;
@@ -40,8 +43,8 @@ public class AppUserServiceImpl implements AppUserService {
     @Autowired
     private UserCredentialsDao userCredentialsDao;
 
-    @Autowired
-    private BasicServiceFeign basicServiceFeign;
+   /* @Autowired
+    private BasicServiceFeign basicServiceFeign;*/
 
 
     @Transactional
@@ -90,7 +93,7 @@ public class AppUserServiceImpl implements AppUserService {
         User user=new User();
         user.setUserName("wwwggglll");
         user.setUserPwd("wwwggglll");
-        basicServiceFeign.addUser(user);
+        /*basicServiceFeign.addUser(user);*/
 
         appUserDao.save(appUser);
         userCredentialsDao

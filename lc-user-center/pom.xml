@@ -29,6 +29,18 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
         <!--Mysql-->
@@ -66,6 +78,17 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.codingapi.txlcn</groupId>
+            <artifactId>txlcn-tc</artifactId>
+            <version>5.0.2.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codingapi.txlcn</groupId>
+            <artifactId>txlcn-txmsg-netty</artifactId>
+            <version>5.0.2.RELEASE</version>
         </dependency>
         <!-- 修改后立即生效，热部署 -->
         <dependency>

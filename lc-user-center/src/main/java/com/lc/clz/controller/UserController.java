@@ -2,9 +2,9 @@ package com.lc.clz.controller;
 
 import com.lc.clz.service.AppUserService;
 import com.lc.clz.utils.AppUserUtils;
-import com.lc.clz.oauth2.AppUser;
+import com.lc.clz.entities.user.AppUser;
 import com.lc.clz.oauth2.LoginAppUser;
-import com.lc.clz.oauth2.SysRole;
+import com.lc.clz.entities.user.SysRole;
 import com.lc.clz.oauth2.constants.Page;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;

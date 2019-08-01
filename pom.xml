@@ -108,6 +108,7 @@
         <module>lc-zuul</module>
         <module>lc-authorization-center</module>
         <module>lc-user-center</module>
+        <module>lc-txmanager</module>
     </modules>
 
 

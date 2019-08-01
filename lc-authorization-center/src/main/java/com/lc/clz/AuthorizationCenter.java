@@ -10,7 +10,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableEurekaClient  //服务客户端，让该服务注册到Eureka中
 @EnableFeignClients  //Feign客户端
 @EnableCircuitBreaker  //熔断机制
-
 public class AuthorizationCenter {
 
     public static void main(String[] args){

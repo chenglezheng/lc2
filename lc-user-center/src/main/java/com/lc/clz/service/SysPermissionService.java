@@ -1,6 +1,6 @@
 package com.lc.clz.service;
 
-import com.lc.clz.oauth2.SysPermission;
+import com.lc.clz.entities.user.SysPermission;
 import com.lc.clz.oauth2.constants.Page;
 
 import java.util.Map;
