@@ -27,5 +27,9 @@
             <artifactId>txlcn-tm</artifactId>
             <version>5.0.2.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
     </dependencies>
 </project>

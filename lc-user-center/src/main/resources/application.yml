@@ -93,6 +93,6 @@ security:
       user-info-uri: http://lc.auth.com:7000/user
       prefer-token-info: false
 
-#tx-lcn:
-#  client:
-#    manager-address: 127.0.0.1:8070
+tx-lcn:
+  client:
+    manager-address: 127.0.0.1:8070

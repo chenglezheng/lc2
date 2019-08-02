@@ -1,3 +1,5 @@
+server:
+  port: 9010
 spring:
   application:
     name: lc-basic-service
@@ -58,7 +60,7 @@ eureka:
 
 mybatis:
   mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
-  type-aliases-package: com.lc.com.lc.clz.entities  # 注意：对应实体类的路径
+  type-aliases-package: com.lc.clz.entities  # 注意：对应实体类的路径
 
 #pagehelper分页插件
 pagehelper:
@@ -91,3 +93,7 @@ info:
   company.name: www.chenglezheng.com
   build.artifactId: ${project.artifactId}
   build.version: ${project.version}
+
+tx-lcn:
+  client:
+    manager-address: 127.0.0.1:8070
