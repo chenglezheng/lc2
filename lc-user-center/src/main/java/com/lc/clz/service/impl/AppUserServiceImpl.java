@@ -1,5 +1,6 @@
 package com.lc.clz.service.impl;
 
+import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.lc.clz.dao.AppUserDao;
 import com.lc.clz.dao.UserCredentialsDao;
 import com.lc.clz.dao.UserRoleDao;
@@ -8,6 +9,7 @@ import com.lc.clz.entities.user.AppUser;
 import com.lc.clz.entities.user.SysPermission;
 import com.lc.clz.entities.user.SysRole;
 import com.lc.clz.entities.user.UserCredential;
+import com.lc.clz.feign.BasicServiceFeign;
 import com.lc.clz.service.AppUserService;
 import com.lc.clz.service.SysPermissionService;
 import com.lc.clz.oauth2.*;
@@ -43,12 +45,12 @@ public class AppUserServiceImpl implements AppUserService {
     @Autowired
     private UserCredentialsDao userCredentialsDao;
 
-   /* @Autowired
-    private BasicServiceFeign basicServiceFeign;*/
+    @Autowired
+    private BasicServiceFeign basicServiceFeign;
 
 
     @Transactional
-    /*@LcnTransaction //分布式事务注解*/
+    @LcnTransaction //分布式事务注解
     @Override
     public void addAppUser(AppUser appUser) {
         String username = appUser.getUsername();
@@ -93,7 +95,7 @@ public class AppUserServiceImpl implements AppUserService {
         User user=new User();
         user.setUserName("wwwggglll");
         user.setUserPwd("wwwggglll");
-        /*basicServiceFeign.addUser(user);*/
+        basicServiceFeign.addUser(user);
 
         appUserDao.save(appUser);
         userCredentialsDao

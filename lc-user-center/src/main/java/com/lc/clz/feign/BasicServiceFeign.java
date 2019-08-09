@@ -5,11 +5,11 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 
-/*@FeignClient(name="lc-basic-service",fallback = BasicServiceFeign.BasicServiceFeignCallback.class)*/
+@FeignClient(name="lc-basic-service",fallback = BasicServiceFeign.BasicServiceFeignCallback.class)
 public interface BasicServiceFeign {
 
 
-    /*@GetMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     User addUser(User user);
 
     @Component
@@ -18,5 +18,5 @@ public interface BasicServiceFeign {
         public User addUser(User user) {
             return null;
         }
-    }*/
+    }
 }
