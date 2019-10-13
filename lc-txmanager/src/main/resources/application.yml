@@ -8,7 +8,7 @@ spring:
   redis:
         host: lc.redis.com
         port: 6379
-        password: clz123456
+        password: Clz!981797842
         database: 0
         timeout: 60s  # 数据库连接超时时间，boot2.0 中该参数的类型为Duration，这里在配置的时候需要指明单位
         # 连接池配置，boot2.0中直接使用jedis或者lettuce配置连接池
@@ -26,8 +26,8 @@ spring:
       name: lc-mybatis
       driver-class-name: com.mysql.jdbc.Driver
       url: jdbc:mysql://lc.mysql.com/lc?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
-      username: root
-      password: clz123456
+      username: chenglezheng
+      password: Clz!981797842
       # 使用druid数据源
       type: com.alibaba.druid.pool.DruidDataSource
       filters: stat,wall,log4j # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
