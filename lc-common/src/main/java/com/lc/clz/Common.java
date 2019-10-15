@@ -1,6 +1,6 @@
 package com.lc.clz;
 
-public class API {
+public class Common {
     public static void main(String[] args) {
 
     }
