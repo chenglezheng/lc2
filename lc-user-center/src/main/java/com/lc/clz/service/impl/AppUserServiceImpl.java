@@ -1,6 +1,6 @@
 package com.lc.clz.service.impl;
 
-import com.codingapi.txlcn.tc.annotation.LcnTransaction;
+/*import com.codingapi.txlcn.tc.annotation.LcnTransaction;*/
 import com.lc.clz.dao.AppUserDao;
 import com.lc.clz.dao.UserCredentialsDao;
 import com.lc.clz.dao.UserRoleDao;
@@ -50,7 +50,7 @@ public class AppUserServiceImpl implements AppUserService {
 
 
     @Transactional
-    @LcnTransaction //分布式事务注解
+/*    @LcnTransaction //分布式事务注解*/
     @Override
     public void addAppUser(AppUser appUser) {
         String username = appUser.getUsername();
