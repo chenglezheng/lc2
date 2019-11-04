@@ -95,6 +95,7 @@ info:
   build.artifactId: ${project.artifactId}
   build.version: ${project.version}
 
+
 tx-lcn:
   client:
     manager-address: 127.0.0.1:8070

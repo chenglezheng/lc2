@@ -1,5 +1,5 @@
 server:
-  port: 81
+  port: 80
 spring:
   application:
     name: lc-zuul
@@ -15,8 +15,10 @@ eureka:
       defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
 zuul:
   host:
-    max-total-connections: 200
+    max-total-connections: 500
     max-per-route-connections: 20
+    connect-timeout-millis: 15000
+    socket-timeout-millis: 60000
 #  ignored-services: '*' #避免所有接口暴露
 #  prefix: /lc #设置公共前缀
   routes:
@@ -30,6 +32,10 @@ zuul:
       path: /lc-basic-service/** # 此处地址必须配置与服务id一致，否则swagger的配置无法访问到正确地址
       sensitiveHeaders:
   add-proxy-headers: true
+
+ribbon:        #设置ribbon的超时时间小于zuul的超时时间
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
 
 security:
   oauth2:

@@ -50,7 +50,7 @@ public class AppUserServiceImpl implements AppUserService {
 
 
     @Transactional
-/*    @LcnTransaction //分布式事务注解*/
+    /*@LcnTransaction //分布式事务注解*/
     @Override
     public void addAppUser(AppUser appUser) {
         String username = appUser.getUsername();

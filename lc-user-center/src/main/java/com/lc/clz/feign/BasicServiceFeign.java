@@ -16,6 +16,7 @@ public interface BasicServiceFeign {
     class BasicServiceFeignCallback implements BasicServiceFeign {
         @Override
         public User addUser(User user) {
+            System.out.println(user.getUserName());
             return null;
         }
     }

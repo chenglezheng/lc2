@@ -94,6 +94,17 @@ security:
       user-info-uri: http://lc.auth.com:7000/user
       prefer-token-info: false
 
+feign:
+  hystrix :
+    enabled: true
+    command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillseconds: 60000 #线程超时,调用Fallback方法
+      circuitBreaker:
+        requestVolumeThreshold: 3 #10秒内出现3个以上请求(已临近阀值),并且出错率在50%以上,开启断路器.断开服务,调用Fallback方法
 #tx-lcn:
 #  client:
 #    manager-address: 127.0.0.1:8070

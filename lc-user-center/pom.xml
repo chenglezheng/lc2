@@ -79,17 +79,17 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-        <!--<dependency>
-            <groupId>com.codingapi.txlcn</groupId>
-            <artifactId>txlcn-tc</artifactId>
-            <version>5.0.2.RELEASE</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.codingapi.txlcn</groupId>-->
+            <!--<artifactId>txlcn-tc</artifactId>-->
+            <!--<version>5.0.2.RELEASE</version>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>com.codingapi.txlcn</groupId>
-            <artifactId>txlcn-txmsg-netty</artifactId>
-            <version>5.0.2.RELEASE</version>
-        </dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.codingapi.txlcn</groupId>-->
+            <!--<artifactId>txlcn-txmsg-netty</artifactId>-->
+            <!--<version>5.0.2.RELEASE</version>-->
+        <!--</dependency>-->
         <!-- 修改后立即生效，热部署 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -78,7 +78,7 @@ feign:
       execution:
         isolation:
           thread:
-            timeoutInMillseconds: 2000 #线程超时,调用Fallback方法
+            timeoutInMillseconds: 60000 #线程超时,调用Fallback方法
       circuitBreaker:
         requestVolumeThreshold: 3 #10秒内出现3个以上请求(已临近阀值),并且出错率在50%以上,开启断路器.断开服务,调用Fallback方法
 

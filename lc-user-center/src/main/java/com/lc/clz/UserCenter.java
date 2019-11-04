@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableEurekaClient  //服务客户端，让该服务注册到Eureka中
 @EnableTransactionManagement /*开启事务管理*/
-/*@EnableDistributedTransaction *//*开启分布式事务管理*/
+/*@EnableDistributedTransaction*/ /*开启分布式事务管理*/
 @MapperScan("com.lc.clz.dao")  //扫描mapper，否则启动会报找不到mapper
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class UserCenter {

@@ -1,6 +1,6 @@
 package com.lc.clz.service.impl;
 
-import com.codingapi.txlcn.tc.annotation.LcnTransaction;
+//import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lc.clz.dao.UserDao;
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
     // 因为必须要有返回值，才能保存到数据库中，如果保存的对象的某些字段是需要数据库生成的，那保存对象进数据库的时候，就没必要放到缓存了
     @CachePut(key="#p0.userName.toString()")  //#p0表示第一个参数 (必须要有返回值，否则没数据放到缓存中)
-    @LcnTransaction//分布式事务注解
+//    @LcnTransaction//分布式事务注解
     @Transactional(rollbackFor = Throwable.class)
     public User addUser(User user) {
         user=new User();
