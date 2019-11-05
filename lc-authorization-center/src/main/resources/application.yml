@@ -90,7 +90,3 @@ management:
   endpoint:
     health:
       show-details: always
-#security:
-#  oauth2:
-#    resource:
-#      filter-order: 3  #不加此配置，zuul无法正常认证服务，1.5.x boot版本會有此問題

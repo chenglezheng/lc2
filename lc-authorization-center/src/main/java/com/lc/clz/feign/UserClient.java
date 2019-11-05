@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name="lc-user-center",fallback = UserClient.UserClientCallback.class)
 public interface UserClient {
 
-    @GetMapping(value = "/users-anon/internal", params = "username")
+    @GetMapping(value = "/users-anon/internal")
     LoginAppUser findByUsername(@RequestParam("username") String username);
 
     @Component
