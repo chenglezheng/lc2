@@ -33,7 +33,7 @@ zuul:
       sensitiveHeaders:
   add-proxy-headers: true
 
-ribbon:        #设置ribbon的超时时间小于zuul的超时时间
+ribbon:        #设置ribbon的超时时间小于zuul的超时时间(此处不设置，将会导致路由超时错误)
   ReadTimeout: 10000
   ConnectTimeout: 10000
 

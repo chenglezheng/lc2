@@ -22,9 +22,8 @@ public class UserController {
      * @param user
      * @return
      */
-    @PostMapping(value = "/add", consumes="application/json" )
+    @PostMapping(value = "/add")
     public User addUser(@RequestBody User user){
-        user=new User();
         return userServiceImpl.addUser(user);
     }
 
@@ -48,15 +47,6 @@ public class UserController {
         return userServiceImpl.selectUser(userId);
     }
 
-    /**
-     * 查询用户
-     * @return
-     */
-    @GetMapping(value = "/test")
-    public User test(){
-        System.out.println("come in");
-        return null;
-    }
 
     /**
      * 删除用户

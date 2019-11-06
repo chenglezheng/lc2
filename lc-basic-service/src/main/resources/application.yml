@@ -74,12 +74,15 @@ logging:
   level:
     com.lc.clz.dao: debug
 
-#动态刷新配置
 management:
   endpoints:
     web:
       exposure:
-        include: "*"   #2.0.X版本以上需要加这段配置，原因：以上版本没有暴露所有HTTP端口
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
 
 security:
   oauth2:
@@ -96,6 +99,6 @@ info:
   build.version: ${project.version}
 
 
-tx-lcn:
-  client:
-    manager-address: 127.0.0.1:8070
+#tx-lcn:
+#  client:
+#    manager-address: 127.0.0.1:8070

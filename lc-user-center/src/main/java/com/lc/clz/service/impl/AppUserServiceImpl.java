@@ -53,7 +53,6 @@ public class AppUserServiceImpl implements AppUserService {
     /*@LcnTransaction //分布式事务注解*/
     @Override
     public void addAppUser(AppUser appUser) {
-        basicServiceFeign.test();
         String username = appUser.getUsername();
         if (StringUtils.isBlank(username)) {
             throw new IllegalArgumentException("用户名不能为空");
@@ -98,7 +97,6 @@ public class AppUserServiceImpl implements AppUserService {
         user.setUserPwd("wwwggglll");
         basicServiceFeign.addUser(user);
 
-        User user1=basicServiceFeign.selectUser(1l);
 
         appUserDao.save(appUser);
         userCredentialsDao

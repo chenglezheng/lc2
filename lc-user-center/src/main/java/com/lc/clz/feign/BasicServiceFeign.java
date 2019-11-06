@@ -9,33 +9,18 @@ import org.springframework.web.bind.annotation.*;
 public interface BasicServiceFeign {
 
 
-    @PostMapping(value = "/add",consumes = "application/json")
+    @PostMapping(value = "/add")
     User addUser(@RequestBody User user);
 
-    @GetMapping(value = "/select/{userId}")
-    User selectUser(@PathVariable("userId") Long userId);
-
-    @GetMapping(value = "/test")
-    User test();
 
     @Component
     class BasicServiceFeignCallback implements BasicServiceFeign {
-        @Override
-        public User test() {
-            System.out.println("还是失败");
-            return null;
-        }
-
-        @Override
-        public User selectUser(Long userId) {
-            System.out.println("失败");
-            return null;
-        }
 
         @Override
         public User addUser(User user) {
-            System.out.println("failed!");
-            return null;
+            System.out.println("failed");
+            user.setUserName("用户添加失败");
+            return user;
         }
     }
 }
