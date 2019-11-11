@@ -17,8 +17,8 @@ zuul:
   host:
     max-total-connections: 500
     max-per-route-connections: 20
-    connect-timeout-millis: 15000
-    socket-timeout-millis: 60000
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 90000
 #  ignored-services: '*' #避免所有接口暴露
 #  prefix: /lc #设置公共前缀
   routes:
@@ -34,8 +34,8 @@ zuul:
   add-proxy-headers: true
 
 ribbon:        #设置ribbon的超时时间小于zuul的超时时间(此处不设置，将会导致路由超时错误)
-  ReadTimeout: 10000
-  ConnectTimeout: 10000
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
 
 security:
   oauth2:
