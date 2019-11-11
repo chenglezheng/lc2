@@ -1,11 +1,12 @@
 package com.lc.clz.feign;
 
+import com.lc.clz.config.FeignOauth2RequestInterceptor;
 import com.lc.clz.entities.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name="lc-basic-service",fallback = BasicServiceFeign.BasicServiceFeignCallback.class)
+@FeignClient(name="lc-basic-service",fallback = BasicServiceFeign.BasicServiceFeignCallback.class,configuration = FeignOauth2RequestInterceptor.class)
 public interface BasicServiceFeign {
 
 
