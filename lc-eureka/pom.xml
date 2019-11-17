@@ -12,11 +12,12 @@
     <artifactId>lc-eureka</artifactId>
 
     <dependencies>
-        <!-- Eureka注册中心依赖-->
+        <!--cloud相关start-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
+        <!--cloud相关end-->
     </dependencies>
 
 
