@@ -42,7 +42,7 @@
         </dependency>
         <!--cloud相关end-->
         <!--引用本地公共类start-->
-        <dependency>
+        <!--<dependency>
             <groupId>com.lc.clz</groupId>
             <artifactId>lc-common</artifactId>
             <version>${project.version}</version>
@@ -51,7 +51,7 @@
             <groupId>com.lc.clz</groupId>
             <artifactId>lc-api</artifactId>
             <version>${project.version}</version>
-        </dependency>
+        </dependency>-->
         <!--引用本地公共类end-->
         <!--其它应用包start-->
         <dependency>

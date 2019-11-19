@@ -66,9 +66,9 @@ management:
       exposure:
         include: "*"   #2.0.X版本以上需要加这段配置，原因：以上版本没有暴露所有HTTP端口
 
-security:
-  oauth2:
-    resource:
-      id: lc-user-center
-      user-info-uri: http://lc.auth.com:7000/user
-      prefer-token-info: false
+#security:
+#  oauth2:
+#    resource:
+#      id: lc-user-center
+#      user-info-uri: http://lc.auth.com:7000/user
+#      prefer-token-info: false
