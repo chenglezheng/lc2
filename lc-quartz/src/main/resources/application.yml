@@ -66,6 +66,11 @@ management:
       exposure:
         include: "*"   #2.0.X版本以上需要加这段配置，原因：以上版本没有暴露所有HTTP端口
 
+#开启quartz
+quartz:
+  enabled: true
+
+
 #security:
 #  oauth2:
 #    resource:
