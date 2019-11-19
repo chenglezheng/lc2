@@ -144,6 +144,10 @@
         <module>lc-user-center</module>
         <module>lc-txmanager</module>
         <module>lc-quartz</module>
+        <module>lc-fileupload</module>
+        <module>lc-notification</module>
+        <module>lc-hystrix-monitor</module>
+        <module>lc-log-center</module>
     </modules>
 
 
