@@ -1,16 +1,22 @@
 package com.lc.clz.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "JOB_ENTITY")
 public class JobEntity implements Serializable {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;          //job名称
     private String group;         //job组名
     private String cron;          //执行的cron
     private String parameter;     //job的参数
     private String description;   //job描述信息
+    @Column(name = "vm_param")
     private String vmParam;       //vm参数
+    @Column(name = "jar_path")
     private String jarPath;       //job的jar路径,在这里我选择的是定时执行一些可执行的jar包
     private String status;        //job的执行状态,这里我设置为OPEN/CLOSE且只有该值为OPEN才会执行该Job
 

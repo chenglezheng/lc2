@@ -47,7 +47,11 @@ spring:
           slowSqlMillis: 5000 # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
     useGlobalDataSourceStat: true  #合并多个DruidDataSource的监控数据(暂时不明白时什么意思，也没有测试出来)
     #cachePrepStmts: true  # 开启二级缓存
-
+  jpa:
+    show-sql: true
+    jackson:
+      serialization:
+        indent_output: true
 eureka:
   instance:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
