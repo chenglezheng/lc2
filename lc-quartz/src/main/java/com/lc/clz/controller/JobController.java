@@ -16,7 +16,6 @@ import javax.annotation.PostConstruct;
 import java.util.Set;
 
 /**
- * Created by EalenXie on 2018/6/4 16:12
  */
 @RestController
 public class JobController {

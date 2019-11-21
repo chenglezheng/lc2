@@ -21,7 +21,7 @@ spring:
           # 最大活跃连接数，负数为不限制
           max-active: -1
   datasource:
-    name: lc-mybatis
+    name: lc2
     url: jdbc:mysql://lc.mysql.com:3306/lc?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: chenglezheng
     password: Clz!981797842
@@ -59,20 +59,6 @@ eureka:
     serviceUrl:
       defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
 
-mybatis:
-  mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
-  type-aliases-package: com.lc.clz.entities  # 注意：对应实体类的路径
-
-#pagehelper分页插件
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
-
-logging:
-  level:
-    com.lc.clz.dao: debug
 
 management:
   endpoints:
