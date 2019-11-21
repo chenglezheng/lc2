@@ -1,8 +1,8 @@
 package com.lc.clz.config;
 
 import com.lc.clz.oauth2.LoginAppUser;
-import com.lc.clz.service.impl.JdbcClientDetailsServiceImpl;
-import com.lc.clz.service.impl.RedisAuthorizationCodeServiceImpl;
+import com.lc.clz.service.JdbcClientDetailsServiceImpl;
+import com.lc.clz.service.RedisAuthorizationCodeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +12,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;

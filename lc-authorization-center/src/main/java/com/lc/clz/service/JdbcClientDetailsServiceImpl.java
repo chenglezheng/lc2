@@ -1,4 +1,4 @@
-package com.lc.clz.service.impl;
+package com.lc.clz.service;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;

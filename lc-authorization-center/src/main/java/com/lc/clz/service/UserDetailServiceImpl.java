@@ -1,4 +1,4 @@
-package com.lc.clz.service.impl;
+package com.lc.clz.service;
 
 import com.lc.clz.feign.UserClient;
 import com.lc.clz.oauth2.LoginAppUser;

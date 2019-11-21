@@ -1,4 +1,4 @@
-package com.lc.clz.service.impl;
+package com.lc.clz.service;
 
 import com.lc.clz.dao.RolePermissionDao;
 import com.lc.clz.dao.SysPermissionDao;

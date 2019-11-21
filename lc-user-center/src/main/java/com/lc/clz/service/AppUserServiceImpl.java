@@ -1,4 +1,4 @@
-package com.lc.clz.service.impl;
+package com.lc.clz.service;
 
 /*import com.codingapi.txlcn.tc.annotation.LcnTransaction;*/
 import com.lc.clz.dao.AppUserDao;

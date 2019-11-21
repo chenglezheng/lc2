@@ -18,11 +18,11 @@
             <artifactId>lc-common</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.lc.clz</groupId>
             <artifactId>lc-api</artifactId>
             <version>${project.version}</version>
-        </dependency>
+        </dependency>-->
         <!--引用本地公共类end-->
         <!--cloud相关start-->
         <dependency>

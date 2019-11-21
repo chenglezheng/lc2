@@ -1,12 +1,12 @@
 package com.lc.clz.config;
 
-import com.lc.clz.oauth2.PermitUrlUtils;
+/*import com.lc.clz.oauth2.PermitUrlUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;*/
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,11 +15,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  *
  */
-@Configuration
-@EnableResourceServer
-public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
+/*@Configuration
+@EnableResourceServer*/
+public class ResourceServerConfig /*extends ResourceServerConfigurerAdapter*/ {
 
-	@Override
+	/*@Override
 	public void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().exceptionHandling()
 				.authenticationEntryPoint(
@@ -32,7 +32,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
-	}
+	}*/
 
 
 }
