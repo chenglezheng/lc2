@@ -1,55 +1,45 @@
 package com.lc.clz.controller;
 
-import io.swagger.annotations.Api;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
-@Slf4j
 @RestController
-@RequestMapping
-@Api(description = "Oauth2")
 public class OAuth2Controller {
-
-    /**
-     * 直接返回
-     * @param principal
-     * @return
-     */
-    @GetMapping("/user")
-    public Principal principal(Principal principal) {
-       log.debug("user:",principal.getName());
-        return principal;
-    }
-
-    @GetMapping("/users/current")
-    public String test() {
-       return "111";
-    }
 
     @Autowired
     private TokenStore tokenStore;
 
+
     /**
-     * 退出
+     * 获得用户和token等相关信息
+     * @param principal
+     * @return
+     */
+    @GetMapping("/getPrincipal")
+    public Principal getPrincipal(Principal principal) {
+        return principal;
+    }
+
+
+    /**
+     * 移除access_token，refresh_token 用户退出
      * @param principal
      * @param access_token
      */
-    @DeleteMapping(value = "/remove_token", params = "access_token")
-    public void removeToken(Principal principal,String access_token) {
+    @DeleteMapping(value = "/remove_token")
+    public void removeToken(Principal principal,@RequestParam("access_token") String access_token) {
         OAuth2AccessToken accessToken=tokenStore.readAccessToken(access_token);
         if (access_token!=null){
             tokenStore.removeAccessToken(accessToken);
             tokenStore.removeRefreshToken(accessToken.getRefreshToken());
         }
-        log.info(principal.getName());
     }
 
 

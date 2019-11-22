@@ -12,6 +12,12 @@
     <artifactId>lc-common</artifactId>
 
     <dependencies>
+        <!--boot相关start-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!--boot相关end-->
         <!--cloud相关start-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -23,10 +29,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <!--<scope>provided</scope>-->
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -41,17 +43,6 @@
 
     <build>
         <plugins>
-            <!-- mybatis generator自动生成代码插件 -->
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.2</version>
-                <configuration>
-                    <configurationFile>../lc-basic-service/src/main/resources/generator/generatorConfig.xml</configurationFile>
-                    <overwrite>true</overwrite>
-                    <verbose>true</verbose>
-                </configuration>
-            </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>

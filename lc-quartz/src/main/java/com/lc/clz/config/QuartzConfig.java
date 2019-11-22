@@ -36,8 +36,6 @@ public class QuartzConfig {
      * @param dataSource 为SchedulerFactory配置数据源
      * @param jobFactory 为SchedulerFactory配置JobFactory
      */
-
-
     @Bean
     public SchedulerFactoryBean schedulerFactoryBean(DataSource dataSource, JobFactory jobFactory) throws IOException {
         SchedulerFactoryBean factory = new SchedulerFactoryBean();

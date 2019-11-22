@@ -1,8 +1,8 @@
 package com.lc.clz.service;
 
-import com.lc.clz.dao.JobEntityRepository;
+import com.lc.clz.feign.JobEntityRepository;
 import com.lc.clz.entity.JobEntity;
-import com.lc.clz.config.DynamicJob;
+import com.lc.clz.config.DynamicJobConfig;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +40,7 @@ public class DynamicJobService {
     }
     //获取JobDetail,JobDetail是任务的定义,而Job是任务的执行逻辑,JobDetail里会引用一个Job Class来定义
     public JobDetail geJobDetail(JobKey jobKey, String description, JobDataMap map) {
-        return JobBuilder.newJob(DynamicJob.class)
+        return JobBuilder.newJob(DynamicJobConfig.class)
                 .withIdentity(jobKey)
                 .withDescription(description)
                 .setJobData(map)

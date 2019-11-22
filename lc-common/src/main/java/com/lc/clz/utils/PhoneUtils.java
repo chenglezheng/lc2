@@ -10,7 +10,6 @@ public class PhoneUtils {
 
 	/**
 	 * 校验手机号
-	 * 
 	 * @param phone
 	 * @return
 	 */
@@ -18,7 +17,6 @@ public class PhoneUtils {
 		if (phone == null || phone.length() != 11) {
 			return Boolean.FALSE;
 		}
-
 		Matcher m = P.matcher(phone);
 		return m.matches();
 	}

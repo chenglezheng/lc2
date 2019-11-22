@@ -1,14 +1,16 @@
 package com.lc.clz.controller;
 
-import com.lc.clz.entities.User;
+import com.lc.clz.entity.Menu;
 import com.lc.clz.service.MenuService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@Api(description = "基础服务")
+@Api(description = "菜单服务")
 public class MenuController {
 
     @Autowired
@@ -16,12 +18,12 @@ public class MenuController {
 
     /**
      * 添加用户
-     * @param user
+     * @param menu
      * @return
      */
     @PostMapping(value = "/add")
-    public void addMenu(@RequestBody User user){
-        return menuService.addUser(user);
+    public Menu addMenu(@RequestBody Menu menu){
+        return menuService.addMenu(menu);
     }
 
 

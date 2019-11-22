@@ -1,8 +1,7 @@
 package com.lc.clz.service;
 
-import com.lc.clz.feign.UserClient;
-import com.lc.clz.oauth2.LoginAppUser;
-import com.lc.clz.oauth2.constants.CredentialType;
+import com.lc.clz.entities.LoginUser;
+import com.lc.clz.enums.CredentialType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
@@ -13,45 +12,45 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
- * 根据用户名获取用户<br>
- * <p>
- * 密码校验请看下面两个类
- *
- * @see org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider
- * @see org.springframework.security.authentication.dao.DaoAuthenticationProvider
+ * 用户详情服务
  */
 @Slf4j
-@Service("userDetailsService")
+@Service("userDetailServiceImpl")
 public class UserDetailServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserClient userClient;
+    private UserService userService;
 
 
+    /**
+     * 获取用户详情
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // 为了支持多类型登录，这里username后面拼装上登录类型,如username|type
-        String[] params = username.split("\\|");
-        username = params[0];// 真正的用户名
-
-        LoginAppUser loginAppUser = userClient.findByUsername(username);
-        if (loginAppUser == null) {
+        String[] params = username.split("\\|");// 为支持多类型登录,username后面拼装上登录类型,如username|type
+        username = params[0];
+        LoginUser LoginUser = userService.findByUsername(username);
+        if (LoginUser == null) {
             throw new AuthenticationCredentialsNotFoundException("用户不存在");
-        } else if (!loginAppUser.isEnabled()) {
+        } else if (!LoginUser.isEnabled()) {
             throw new DisabledException("用户已作废");
         }
 
+        // TODO: 2019/11/22 需要对不同的登录类型做个性化处理
         if (params.length > 1) {
-            // 登录类型
             CredentialType credentialType = CredentialType.valueOf(params[1]);
-            if (CredentialType.PHONE == credentialType) {// 短信登录
-            } else if (CredentialType.WECHAT_OPENID == credentialType) {// 微信登陆
+            if (CredentialType.PHONE == credentialType) {
+                // 短信登录
+
+            } else if (CredentialType.WECHAT_OPENID == credentialType) {
+                // 微信登陆
 
             }
         }
-
-        return loginAppUser;
+        return LoginUser;
     }
-
 
 }

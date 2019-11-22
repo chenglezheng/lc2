@@ -2,7 +2,7 @@ package com.lc.clz.service;
 
 //import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 
-import com.lc.clz.dao.MenuDao;
+import com.lc.clz.feign.MenuDao;
 import com.lc.clz.entity.Menu;
 import com.lc.clz.entity.MenuId;
 import org.springframework.beans.factory.annotation.Autowired;

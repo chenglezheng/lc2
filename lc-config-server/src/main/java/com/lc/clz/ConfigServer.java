@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableEurekaClient  //服务客户端，让该服务注册到Eureka中
-@EnableConfigServer  //启动注册中心
+@EnableEurekaClient  //注册服务
+@EnableConfigServer  //启动配置中心
 public class ConfigServer {
 
     @Bean

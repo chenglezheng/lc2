@@ -1,5 +1,6 @@
 package com.lc.clz.config;
 
+import com.lc.clz.utils.PermitUrlUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,54 +12,65 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+/**
+ * Web地址安全配置
+ */
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Autowired
     public UserDetailsService userDetailsService;
+
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     /**
-     * 全局用户信息<br>
-     * 方法上的注解@Autowired的意思是，方法的参数的值是从spring容器中获取的<br>
-     * 即参数AuthenticationManagerBuilder是spring中的一个Bean
-     *
-     * @param auth 认证管理
-     * @throws Exception 用户认证异常信息
+     * 配置认证管理构造器
+     * @param auth
+     * @throws Exception
      */
-    @Autowired
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 
-
+    /**
+     * 配置http安全地址
+     * @param http
+     * @throws Exception
+     */
     @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .authorizeRequests()
+            .anyRequest().authenticated()
+            .and()
+            .csrf().disable()
+            .httpBasic()
+            .and().authorizeRequests()
+            .antMatchers(PermitUrlUtils.permitAllUrl()).permitAll();
+    }
+
+     /**********************************创建Bean****************************************/
+    /**
+     * 创建密码编码
+     * @return
+     */
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    /**
+     * 创建认证管理
+     * @return
+     * @throws Exception
+     */
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                .csrf().disable()
-                .httpBasic();
-    }
-
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/favor.ioc");
-    }
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
 }
 

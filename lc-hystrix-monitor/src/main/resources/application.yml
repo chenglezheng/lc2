@@ -13,6 +13,6 @@ eureka:
         serviceUrl:
           defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
 turbine:
-  app-config: lc-auth-center
+  app-config: lc-auth-center,lc-basic-service
   cluster-name-expression: "'default'"
   combine-host-port: true
