@@ -6,7 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 public interface UserDao extends CrudRepository<User,Long> {
 
 
-    User getUserByuserName(String userName);
+    User getUserByUserName(String userName);
 
-
+    @Override
+    <S extends User> S save(S s);
 }

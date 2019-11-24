@@ -23,8 +23,8 @@ public class UserService {
     @Autowired
     private UserClient userClient;
 
-    public LoginUser findByuserName(String userName) {
-        User user = userClient.getUserByuserName(userName);
+    public LoginUser findByUserName(String userName) {
+        User user = userClient.getUserByUsername(userName);
         if (user != null) {
             LoginUser LoginUser = new LoginUser();
             BeanUtils.copyProperties(user, LoginUser);

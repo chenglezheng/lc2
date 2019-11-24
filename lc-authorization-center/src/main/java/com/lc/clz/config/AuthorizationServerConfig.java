@@ -38,7 +38,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private boolean addUserInfo;
     @Value("${access_token.jwt-signing-key:cheng@le@zheng=$==+_+%0%:)(:)}")
     private String signingKey;
-    @Value("${access_token.store-jwt:false}")
+    @Value("${access_token.store-jwt:true}")
     private boolean storeWithJwt;
 
     @Autowired
@@ -135,6 +135,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      */
     @Bean
     public TokenStore tokenStore() {
+        System.out.println(storeWithJwt);
         if (storeWithJwt) {
             return new JwtTokenStore(accessTokenConverter());  //Jwt存储
         }

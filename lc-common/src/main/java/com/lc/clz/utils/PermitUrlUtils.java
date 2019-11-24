@@ -9,10 +9,7 @@ public final class PermitUrlUtils {
     /**
      * 监控中心和swagger需要访问的url
      */
-    private static final String[] ENDPOINTS = {"/actuator/health", "/actuator/env", "/actuator/metrics/**", "/actuator/trace", "/actuator/dump",
-            "/actuator/jolokia", "/actuator/info", "/actuator/logfile", "/actuator/refresh", "/actuator/flyway", "/actuator/liquibase",
-            "/actuator/heapdump", "/actuator/loggers", "/actuator/auditevents", "/actuator/env/PID", "/actuator/jolokia/**",
-            "/v2/api-docs/**", "/swagger-ui.html", "/swagger-resources/**", "/webjars/**","/users-anon/internal","/druid/**"};
+    private static final String[] ENDPOINTS = {"/actuator/**","/webjars/**","/v2/api-docs","/swagger**","/swagger-resources/**","/druid/**"};  // /webjars/*是swagger的静态文件路径
 
     /**
      * 需要放开权限的url

@@ -1,6 +1,8 @@
 package com.lc.clz;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -12,6 +14,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableFeignClients  //Feign
 @EnableCircuitBreaker  //开启熔断
 @EnableAuthorizationServer //认证服务器
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class AuthorizationCenter {
 
     public static void main(String[] args){

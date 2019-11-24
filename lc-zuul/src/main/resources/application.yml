@@ -31,17 +31,19 @@ zuul:
     lc-basic-service:
       path: /lc-basic-service/** # 此处地址必须配置与服务id一致，否则swagger的配置无法访问到正确地址
       sensitiveHeaders:
+    lc-quartz-service:
+      path: /lc-quartz-service/** # 此处地址必须配置与服务id一致，否则swagger的配置无法访问到正确地址
+      sensitiveHeaders:
   add-proxy-headers: true
 
 ribbon:        #设置ribbon的超时时间小于zuul的超时时间(此处不设置，将会导致路由超时错误)
   ReadTimeout: 60000
   ConnectTimeout: 60000
 
+
 security:
   oauth2:
-    client:
-      accessTokenUri: http://lc.auth.com:7000/oauth/token
-      userAuthorizationUri: http://lc.auth.com:7000/oauth/authorize
     resource:
-      userInfoUri: http://lc.auth.com:7000/user
+      id: lc-authorization-center
+      user-info-uri: http://lc.auth.com:7000/getPrincipal
       prefer-token-info: false

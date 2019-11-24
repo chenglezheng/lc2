@@ -25,7 +25,7 @@ public class SwaggerConfig {
     public Docket swaggerPersonAPI10(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.lc.com.lc.clz.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.lc.clz.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .securitySchemes(securitySchemes())

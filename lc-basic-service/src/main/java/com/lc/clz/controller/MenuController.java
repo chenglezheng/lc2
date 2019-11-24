@@ -24,7 +24,7 @@ public class MenuController {
      * @param menuId
      * @return
      */
-    @PostMapping(value = "/add")
+    @PostMapping(value = "/selectMenuByMenuId")
     public Menu selectMenuByMenuId(@RequestBody MenuId menuId){
         return menuService.selectMenuByMenuId(menuId);
     }

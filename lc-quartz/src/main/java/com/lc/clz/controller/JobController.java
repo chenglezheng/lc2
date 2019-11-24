@@ -45,4 +45,12 @@ public class JobController {
     }
 
 
+    /**
+     *测试
+     */
+    @RequestMapping("/test")
+    public String test() {
+        return "success";
+    }
+
 }

@@ -22,10 +22,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		http.csrf().disable().exceptionHandling()
 				.authenticationEntryPoint((request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
 				.and().authorizeRequests()
-				.antMatchers(PermitUrlUtils.permitAllUrl("/lc-user-center/v2/api-docs"
-																,"/lc-auth-center/v2/api-docs"
-																,"/lc-basic-service/v2/api-docs"
-																,"/lc-quartz-service/v2/api-docs")).permitAll() // 放开权限的url
+				.antMatchers(PermitUrlUtils.permitAllUrl()).permitAll() // 放开权限的url
 				.anyRequest().authenticated().and().httpBasic();
 	}
 

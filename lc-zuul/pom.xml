@@ -12,6 +12,13 @@
     <artifactId>lc-zuul</artifactId>
 
     <dependencies>
+        <!--引用本地公共类start-->
+        <dependency>
+            <groupId>com.lc.clz</groupId>
+            <artifactId>lc-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--引用本地公共类end-->
         <!--boot相关start-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
