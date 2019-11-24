@@ -1,22 +1,13 @@
 package com.lc.clz.controller;
 
-import com.lc.clz.entity.JobEntity;
-import com.lc.clz.service.DynamicJobService;
 import com.lc.clz.service.JobService;
-import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
-import org.quartz.impl.matchers.GroupMatcher;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.quartz.SchedulerFactoryBean;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
-import java.util.Set;
 
 /**
  */

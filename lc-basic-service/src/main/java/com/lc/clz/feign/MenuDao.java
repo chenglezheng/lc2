@@ -1,11 +1,11 @@
 package com.lc.clz.feign;
 
-import com.lc.clz.entity.Menu;
-import com.lc.clz.entity.MenuId;
+import com.lc.clz.entities.Menu;
+import com.lc.clz.entities.MenuId;
 import org.springframework.data.repository.CrudRepository;
 
 public interface MenuDao extends CrudRepository<Menu, MenuId> {
 
-    Menu getByMenuId(MenuId menuId);
+    Menu getByMenuCodeAndMenuActualValue(String menuCode,String menuActualValue);
 
 }

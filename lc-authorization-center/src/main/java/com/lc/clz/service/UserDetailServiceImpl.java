@@ -24,15 +24,15 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     /**
      * 获取用户详情
-     * @param username
+     * @param userName
      * @return
      * @throws UsernameNotFoundException
      */
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        String[] params = username.split("\\|");// 为支持多类型登录,username后面拼装上登录类型,如username|type
-        username = params[0];
-        LoginUser LoginUser = userService.findByUsername(username);
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+        String[] params = userName.split("\\|");// 为支持多类型登录,username后面拼装上登录类型,如username|type
+        userName = params[0];
+        LoginUser LoginUser = userService.findByuserName(userName);
         if (LoginUser == null) {
             throw new AuthenticationCredentialsNotFoundException("用户不存在");
         } else if (!LoginUser.isEnabled()) {

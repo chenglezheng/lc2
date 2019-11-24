@@ -1,6 +1,7 @@
 package com.lc.clz.controller;
 
-import com.lc.clz.entity.Menu;
+import com.lc.clz.entities.Menu;
+import com.lc.clz.entities.MenuId;
 import com.lc.clz.service.MenuService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +17,16 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
 
+
+
     /**
-     * 添加用户
-     * @param menu
+     * 根据菜单ID（菜单编码和菜单实际值获取菜单）
+     * @param menuId
      * @return
      */
     @PostMapping(value = "/add")
-    public Menu addMenu(@RequestBody Menu menu){
-        return menuService.addMenu(menu);
+    public Menu selectMenuByMenuId(@RequestBody MenuId menuId){
+        return menuService.selectMenuByMenuId(menuId);
     }
 
 

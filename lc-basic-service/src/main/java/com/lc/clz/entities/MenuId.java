@@ -1,14 +1,14 @@
-package com.lc.clz.entity;
+package com.lc.clz.entities;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.io.Serializable;
 
 @Data
-public class MenuId {
+public class MenuId implements Serializable {
 
     private String menuCode;  //菜单代码
+
     private String menuActualValue;//菜单实际值
 
 

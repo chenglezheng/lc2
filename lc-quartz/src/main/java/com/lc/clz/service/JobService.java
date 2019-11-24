@@ -1,13 +1,12 @@
 package com.lc.clz.service;
 
-import com.lc.clz.entity.JobEntity;
+import com.lc.clz.entities.JobEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Set;
 

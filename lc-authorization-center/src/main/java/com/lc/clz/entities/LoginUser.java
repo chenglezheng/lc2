@@ -21,7 +21,7 @@ public class LoginUser extends User implements UserDetails {
 
 	private static final long serialVersionUID = 1753977564987556640L;
 
-	private Set<SysRole> sysRoles;
+	private Set<Role> roles;
 
 	private Set<String> permissions;
 
@@ -29,8 +29,8 @@ public class LoginUser extends User implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Collection<GrantedAuthority> collection = new HashSet<>();
-		if (!CollectionUtils.isEmpty(sysRoles)) {
-			sysRoles.forEach(role -> {
+		if (!CollectionUtils.isEmpty(roles)) {
+			roles.forEach(role -> {
 				if (role.getCode().startsWith("ROLE_")) {
 					collection.add(new SimpleGrantedAuthority(role.getCode()));
 				} else {
@@ -65,6 +65,11 @@ public class LoginUser extends User implements UserDetails {
 
 	@Override
 	public boolean isEnabled() {
-		return getEnabled();
+		return getIsEnabled();
+	}
+
+	@Override
+	public String getUsername() {
+		return getUserName();
 	}
 }

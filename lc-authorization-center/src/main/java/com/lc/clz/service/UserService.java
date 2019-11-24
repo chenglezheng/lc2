@@ -1,8 +1,8 @@
 package com.lc.clz.service;
 
 import com.lc.clz.entities.LoginUser;
-import com.lc.clz.entities.SysPermission;
-import com.lc.clz.entities.SysRole;
+import com.lc.clz.entities.Permission;
+import com.lc.clz.entities.Role;
 import com.lc.clz.entities.User;
 import com.lc.clz.feign.UserClient;
 import org.springframework.beans.BeanUtils;
@@ -23,25 +23,20 @@ public class UserService {
     @Autowired
     private UserClient userClient;
 
-    public LoginUser findByUsername(String username) {
-        User user = userClient.getUserByUsername(username);
+    public LoginUser findByuserName(String userName) {
+        User user = userClient.getUserByuserName(userName);
         if (user != null) {
             LoginUser LoginUser = new LoginUser();
             BeanUtils.copyProperties(user, LoginUser);
-            Set<SysRole> sysRoles = userClient.getRolesByUserId(user.getId());
-            LoginUser.setSysRoles(sysRoles);// 设置角色
-            if (!CollectionUtils.isEmpty(sysRoles)) {
-                Set<Long> roleIds = sysRoles.parallelStream().map(SysRole::getId).collect(Collectors.toSet());
-                Set<SysPermission> sysPermissions = userClient.getPermissionByRoleIds(roleIds);
-                if (!CollectionUtils.isEmpty(sysPermissions)) {
-                    Set<String> permissions = sysPermissions.parallelStream().map(SysPermission::getPermission).collect(Collectors.toSet());
-                    LoginUser.setPermissions(permissions);// 设置权限集合
-                }
+            Set<Role> roles = userClient.getRolesByUserId(user.getId());
+            LoginUser.setRoles(roles);   // 设置角色集合
+            Set<Permission> sysPermissions = userClient.getPermissionByUserId(user.getId());
+            if (!CollectionUtils.isEmpty(sysPermissions)) {
+                Set<String> permissions = sysPermissions.parallelStream().map(Permission::getPermission).collect(Collectors.toSet());
+                LoginUser.setPermissions(permissions);// 设置权限集合
             }
-
             return LoginUser;
         }
-
         return null;
     }
 }

@@ -27,10 +27,5 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 				.anyRequest().authenticated().and().httpBasic();
 	}
 
-	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-
 
 }

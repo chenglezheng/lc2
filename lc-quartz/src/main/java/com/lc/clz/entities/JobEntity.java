@@ -1,4 +1,4 @@
-package com.lc.clz.entity;
+package com.lc.clz.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;

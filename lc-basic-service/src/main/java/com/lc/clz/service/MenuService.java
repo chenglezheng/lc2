@@ -3,8 +3,8 @@ package com.lc.clz.service;
 //import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 
 import com.lc.clz.feign.MenuDao;
-import com.lc.clz.entity.Menu;
-import com.lc.clz.entity.MenuId;
+import com.lc.clz.entities.Menu;
+import com.lc.clz.entities.MenuId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
@@ -36,8 +36,8 @@ public class MenuService {
 
 
     @Cacheable(key="'com.lc.clz.entities.Menu'+#MenuId") // @Cacheable 会先查询缓存，如果缓存中存在，则不执行方法
-    public Menu selectMenu(MenuId menuId) {
-        Menu menu =menuDao.getByMenuId(menuId);
+    public Menu selectMenuByMenuId(MenuId menuId) {
+        Menu menu =menuDao.getByMenuCodeAndMenuActualValue(menuId.getMenuCode(),menuId.getMenuActualValue());
         return menu;
     }
 

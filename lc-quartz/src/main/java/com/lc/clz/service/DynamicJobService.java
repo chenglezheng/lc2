@@ -1,7 +1,7 @@
 package com.lc.clz.service;
 
 import com.lc.clz.feign.JobEntityRepository;
-import com.lc.clz.entity.JobEntity;
+import com.lc.clz.entities.JobEntity;
 import com.lc.clz.config.DynamicJobConfig;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;

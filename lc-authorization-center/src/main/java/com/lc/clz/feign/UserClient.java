@@ -1,7 +1,7 @@
 package com.lc.clz.feign;
 
-import com.lc.clz.entities.SysPermission;
-import com.lc.clz.entities.SysRole;
+import com.lc.clz.entities.Permission;
+import com.lc.clz.entities.Role;
 import com.lc.clz.entities.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -14,30 +14,30 @@ import java.util.Set;
 @FeignClient(name="lc-user-center",fallback = UserClient.UserClientCallback.class)
 public interface UserClient {
 
-    @GetMapping(value = "/getUserByUsername")
-    User getUserByUsername(@RequestParam("username") String username);
+    @GetMapping(value = "/getUserByuserName")
+    User getUserByuserName(@RequestParam("userName") String userName);
 
     @GetMapping(value = "/getRolesByUserId")
-    Set<SysRole> getRolesByUserId(@RequestParam("userId") Long userId);
+    Set<Role> getRolesByUserId(@RequestParam("userId") Long userId);
 
-    @GetMapping(value = "/getPermissionByRoleIds")
-    Set<SysPermission> getPermissionByRoleIds(@RequestBody Set<Long> roleIds);
+    @GetMapping(value = "/getPermissionByUserId")
+    Set<Permission> getPermissionByUserId(@RequestParam("userId") Long userId);
 
 
     @Component
     class UserClientCallback implements UserClient {
         @Override
-        public User getUserByUsername(String username) {
+        public User getUserByuserName(String userName) {
             return null;
         }
 
         @Override
-        public Set<SysRole> getRolesByUserId(Long userId) {
+        public Set<Role> getRolesByUserId(Long userId) {
             return null;
         }
 
         @Override
-        public Set<SysPermission> getPermissionByRoleIds(Set<Long> roleIds) {
+        public Set<Permission> getPermissionByUserId(Long userId) {
             return null;
         }
     }
