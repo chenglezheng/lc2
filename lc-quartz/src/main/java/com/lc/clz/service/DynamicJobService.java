@@ -1,6 +1,6 @@
 package com.lc.clz.service;
 
-import com.lc.clz.feign.JobEntityRepository;
+import com.lc.clz.dao.JobEntityRepository;
 import com.lc.clz.entities.JobEntity;
 import com.lc.clz.config.DynamicJobConfig;
 import org.quartz.*;

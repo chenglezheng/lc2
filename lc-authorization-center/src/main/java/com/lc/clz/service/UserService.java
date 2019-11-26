@@ -4,7 +4,7 @@ import com.lc.clz.entities.LoginUser;
 import com.lc.clz.entities.Permission;
 import com.lc.clz.entities.Role;
 import com.lc.clz.entities.User;
-import com.lc.clz.feign.UserClient;
+import com.lc.clz.dao.UserClient;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

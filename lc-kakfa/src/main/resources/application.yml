@@ -1,0 +1,109 @@
+server:
+  port: 9010
+spring:
+  application:
+    name: lc-kafka-service
+  redis:
+      host: lc.redis.com
+      port: 6379
+      password: Clz!981797842
+      database: 0
+      timeout: 60s  # 数据库连接超时时间，boot2.0 中该参数的类型为Duration，这里在配置的时候需要指明单位
+      # 连接池配置，boot2.0中直接使用jedis或者lettuce配置连接池
+      jedis:
+        pool:
+          # 最大空闲连接数
+          max-idle: 500
+          # 最小空闲连接数
+          min-idle: 50
+          # 等待可用连接的最大时间，负数为不限制
+          max-wait:  -1s
+          # 最大活跃连接数，负数为不限制
+          max-active: -1
+  datasource:
+    name: lc2
+    url: jdbc:mysql://lc.mysql.com:3306/lc?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: chenglezheng
+    password: Clz!981797842
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat,wall,log4j # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    initialSize: 5 # 初始化大小
+    maxActive: 20 # 最大
+    minIdle: 5 # 最小
+    maxWait: 60000 # 配置获取连接等待超时的时间
+    timeBetweenEvictionRunsMillis: 60000 # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    minEvictableIdleTimeMillis: 300000 # 配置一个连接在池中最小生存的时间，单位是毫秒
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true # 打开PSCache，并且指定每个连接上PSCache的大小
+    maxOpenPreparedStatements: 20 # 打开PSCache，并且指定每个连接上PSCache的大小
+    connectionProperties :
+      duird:
+        stat:
+          mergeSql: true
+          slowSqlMillis: 5000 # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    useGlobalDataSourceStat: true  #合并多个DruidDataSource的监控数据(暂时不明白时什么意思，也没有测试出来)
+    #cachePrepStmts: true  # 开启二级缓存
+  jpa:
+    show-sql: true
+    jackson:
+      serialization:
+        indent_output: true
+  kafka:
+    bootstrap-servers: 47.105.91.215:9092  #逗号隔开kafka的地址列表
+    producer:
+      retries: 3 #发生错误后，消息的重发次数
+      batch-size: 16384 #当有多个消息需要被发送到同一个分区时，生产者会把它们放在同一个批次里。该参数设置一个批次的内存大小
+      buffer-memory: 33554432 #设置生产者内存缓冲区的大小
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer #键的序列化方式
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer #值得序列化方式
+#      acks: 0  #生产者在成功写入消息之前不会等待任何来自服务器的响应。
+      acks: 1   #只要集群的首领节点收到消息，生产者就会收到一个来自服务器成功响应。
+#      acks: all #只有当所有参与复制的节点全部收到消息时，生产者才会收到一个来自服务器的成功响应。
+    consumer:
+      auto-commit-interval: 1S # 自动提交的时间间隔 在 spring boot 2.X 版本中这里采用的是值的类型为 Duration 需要符合特定的格式，如 1S,1M,2H,5D
+      # 该属性指定了消费者在读取一个没有偏移量的分区或者偏移量无效的情况下该作何处理：
+      # latest（默认值）在偏移量无效的情况下，消费者将从最新的记录开始读取数据（在消费者启动之后生成的记录）
+      # earliest ：在偏移量无效的情况下，消费者将从起始位置读取分区的记录
+      auto-offset-reset: earliest
+      # 是否自动提交偏移量，默认值是 true,为了避免出现重复数据和数据丢失，可以把它设置为 false,然后手动提交偏移量
+      enable-auto-commit: true
+      # 键的反序列化方式
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # 值的反序列化方式
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      concurrency: 5 #在侦听器容器中运行的线程数
+
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true     #访问路径可以显示IP地址
+    lease-renewal-interval-in-seconds: 30 #该字段代表每2s像服务器发送一次心跳
+    lease-expiration-duration-in-seconds: 90  #该字段代表如果6s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
+  client:
+    initial-instance-info-replication-interval-seconds: 6
+    serviceUrl:
+      defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+
+#info需要显示的信息
+info:
+  app.name: lc-kafka-service
+  company.name: www.chenglezheng.com
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}

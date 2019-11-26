@@ -133,6 +133,7 @@
         <module>lc-notification</module>
         <module>lc-hystrix-monitor</module>
         <module>lc-log-center</module>
+        <module>lc-kakfa</module>
     </modules>
 
 

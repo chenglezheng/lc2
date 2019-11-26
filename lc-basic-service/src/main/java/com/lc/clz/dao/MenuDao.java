@@ -1,4 +1,4 @@
-package com.lc.clz.feign;
+package com.lc.clz.dao;
 
 import com.lc.clz.entities.Menu;
 import com.lc.clz.entities.MenuId;

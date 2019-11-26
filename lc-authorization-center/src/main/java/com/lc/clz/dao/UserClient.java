@@ -1,4 +1,4 @@
-package com.lc.clz.feign;
+package com.lc.clz.dao;
 
 import com.lc.clz.entities.Permission;
 import com.lc.clz.entities.Role;
@@ -7,7 +7,6 @@ import com.lc.clz.enums.ServiceStatusEnum;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Set;
