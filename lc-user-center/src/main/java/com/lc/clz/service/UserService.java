@@ -2,19 +2,18 @@ package com.lc.clz.service;
 
 /*import com.codingapi.txlcn.tc.annotation.LcnTransaction;*/
 
+import com.lc.clz.constant.ServiceStatusConstant;
 import com.lc.clz.dao.PermissionDao;
 import com.lc.clz.dao.RoleDao;
 import com.lc.clz.dao.UserDao;
 import com.lc.clz.entities.Permission;
 import com.lc.clz.entities.Role;
 import com.lc.clz.entities.User;
-import com.lc.clz.enums.ServiceStatusEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Set;
 
@@ -64,7 +63,7 @@ public class UserService {
             return user;
         }catch (Exception e){
             e.printStackTrace();
-            user.setUserName(ServiceStatusEnum.getServiceStatus.serviceException().toString());
+            user.setUserName(ServiceStatusConstant.EXCEPTION.toString());
             return user;
         }
     }

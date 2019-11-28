@@ -1,9 +1,9 @@
 package com.lc.clz.dao;
 
+import com.lc.clz.constant.ServiceStatusConstant;
 import com.lc.clz.entities.Permission;
 import com.lc.clz.entities.Role;
 import com.lc.clz.entities.User;
-import com.lc.clz.enums.ServiceStatusEnum;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +29,7 @@ public interface UserClient {
         @Override
         public User getUserByUsername(String userName) {
             User user=new User();
-            user.setUserName(ServiceStatusEnum.getServiceStatus.serviceException().toString());
+            user.setUserName(ServiceStatusConstant.EXCEPTION.toString());
             user.setIsEnabled(false);
             return user;
         }

@@ -1,8 +1,8 @@
 package com.lc.clz.service;
 
+import com.lc.clz.constant.ServiceStatusConstant;
 import com.lc.clz.entities.LoginUser;
 import com.lc.clz.enums.CredentialType;
-import com.lc.clz.enums.ServiceStatusEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
@@ -36,7 +36,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
         LoginUser LoginUser = userService.findByUserName(userName);
         if (LoginUser == null) {
             throw new AuthenticationCredentialsNotFoundException("用户不存在");
-        }else if (LoginUser.getUsername().equals(ServiceStatusEnum.getServiceStatus.serviceException().toString())) {
+        }else if (LoginUser.getUsername().equals(ServiceStatusConstant.EXCEPTION.toString())) {
             throw new DisabledException("用户请求异常");
         } else if (!LoginUser.isEnabled()) {
             throw new DisabledException("用户已作废");
